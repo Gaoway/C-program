@@ -7,18 +7,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void find_max(int* data, int end, int* maxnum, int* counter) {
+void find_max(int* data,int end, int* maxnum, int* counter) {
 	int temp_maxnum = 0, temp_counter = 0;
-	if ( end==0) {
-		temp_maxnum = data[0];
+	if (start == end) {
+		temp_maxnum = data[start];
 		temp_counter = 1;
 	}
-	else if (end<0) {
+	else if (start > end) {
 		temp_maxnum = -1;
 		temp_counter = 1;
 	}
 	else {
-		for (int i =0; i < end; ++i) {
+		for (int i = 0; i <= end; ++i) {
 			if (data[i] > temp_maxnum) {
 				temp_counter = 1;
 				temp_maxnum = data[i];
@@ -34,7 +34,7 @@ void find_max(int* data, int end, int* maxnum, int* counter) {
 
 int print_max(int* data, int n_day, int k_day) {
 	int maxnum = 0, counter = 0;
-	find_max(data, k_day, &maxnum, &counter);
+	find_max(data, 0, k_day-1, &maxnum, &counter);
 	printf("%d ", maxnum);
 	for (int i = k_day; i < n_day; ++i) {
 		int inarray = data[i];
@@ -44,7 +44,7 @@ int print_max(int* data, int n_day, int k_day) {
 				counter--;
 			}
 			else if (counter == 1) {
-				find_max(data+( i - k_day + 1), k_day, &maxnum, &counter);
+				find_max(data+(i - k_day + 1), i-1, &maxnum, &counter);
 			}
 		}
 		if (inarray == maxnum) {
