@@ -29,5 +29,8 @@ int main() {
 		scanf("%d", data + i);
 	}
 	qsort(data, total, sizeof(int), num_cmp);
+	
 	printf("%d", max_size(data, total));
+	free(data);
+	return 0;
 }

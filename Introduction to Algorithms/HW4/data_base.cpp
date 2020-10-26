@@ -66,5 +66,6 @@ int main() {
 		}
 		scanf("%s", title);
 	}
+	free(title);
 	return 0;
 }

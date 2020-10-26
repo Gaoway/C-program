@@ -67,5 +67,6 @@ int main() {
 		scanf("%d", data + i);
 	}
 	print_max(data, n_day, k_day);
+	free(data);
 	return 0;
 }

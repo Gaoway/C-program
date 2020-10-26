@@ -22,7 +22,8 @@ int main() {
 		scanf("%d", data + i);
 	qsort(data, total, sizeof(int), num_cmp);
 	printf("%d", data[position - 1]);
-
+	free(data);
+	return 0;
 }
 
 //inline void swap(int a, int b) {
